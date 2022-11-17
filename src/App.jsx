@@ -2,31 +2,24 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+const title = <h1 class="text-2xl">My To-Do List</h1>
+const inputText = <input type="text" placeholder="What needs to be done ?" class="border border-emerald-900 p-1 pl-2"></input>
+const button = <button class="bg-blue-500 text-white w-52 h-10 m-5">Add task</button>
+const checkbox = (`${<input type="checkbox" class="mr-2"></input>}
+${<label for="checkbox">CB</label>}`);
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div class="h-screen w-screen flex flex-col justify-start">
+      <header class="h-20 bg-slate-100 border-b-2 flex items-center justify-center">
+        {title}
+      </header>
+      <div class="mt-5 ml-5">
+        {inputText}<br />
+        {button}<br />
+        {checkbox}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
