@@ -15,6 +15,8 @@ function App() {
         <InputText /><br />
         <Button /><br />
         <CheckBox />
+        <CheckBox />
+        <CheckBox />
       </div>
     </div>
   )
