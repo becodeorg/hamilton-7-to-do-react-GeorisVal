@@ -1,25 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import Title from './components/title'
 import Button from './components/button'
 import InputText from './components/inputText'
-import CheckBox from './components/checkbox'
+import ToDo from './components/todo'
 import './App.css'
+import * as ReactDOM from 'react-dom';
 
 function App() {
-  const [theme, setTheme] = useState('light');
   return (
-    <div class="-screen w-screen flex flex-col justify-start dark:bg-slate-600">
+    <div className="-screen w-screen flex flex-col justify-start dark:bg-slate-600">
       <Title />
-      <div class="mt-5 ml-5">
+      <div className="mt-5 ml-5 flex justify-center flex-col">
         <InputText /><br />
         <Button /><br />
-        <CheckBox />
-        <CheckBox />
-        <CheckBox />
+        <ToDo name="First test" completed={true} id="todo-0"/>
+        <ToDo name="Second test" completed={false} id="todo-1"/>
       </div>
     </div>
   )
 }
-
+console.log(tasks)
 export default App
