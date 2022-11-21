@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { v4 as randomId } from "uuid";
-export default function ToDo() {
-    const toDo = [
-    {title: "test1", done: false, id: randomId()}, 
-    {title: "test2", done: false, id: randomId()}];    
+export default function ToDo(props) {
+    let toDo = props.todo;    
+
     const handleChange = (id) => {
         const newToDo = todos.map((todo) => {
             if (todo.id === id) {
@@ -17,14 +15,19 @@ export default function ToDo() {
     };
 
     const [todos, setTodos] = useState(toDo);
+
+    React.useEffect(() => {
+        setTodos(props.todo);
+    })
+
     return ( 
-        <ul>
+        <ul className="grid grid-cols-2 ml-auto mr-auto gap-10">
             {todos.map((todo) => (
             <li key={todo.id}>
-                <input type="checkbox" id = {todo.id} name="todo1" value={todo.done} onChange={() => {
+                <input type="checkbox" id = {todo.id} value={todo.done} onChange={() => {
                     handleChange(todo.id)
-                }} className="accent-blue-300"></input>
-                <label htmlFor={todo.id} className={`dark:text-white ml-5 ${todo.done?"line-through":"no-underline"}`}>{todo.title}</label>
+                }} className="accent-blue-300 scale-[3] m-10"></input>
+                <label htmlFor={todo.id} className={`dark:text-white ml-5 text-xl ${todo.done?"line-through":"no-underline"}`}>{todo.title}</label>
             </li>
             ))}
         </ul>
