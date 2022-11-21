@@ -6,18 +6,18 @@ import ToDo from './components/todo'
 import './App.css'
 import * as ReactDOM from 'react-dom';
 
-function App() {
+function App(props) {
+  const taskList = props.tasks.map((task) => <ToDo />);
+  console.log(taskList)
   return (
     <div className="-screen w-screen flex flex-col justify-start dark:bg-slate-600">
       <Title />
       <div className="mt-5 ml-5 flex justify-center flex-col">
         <InputText /><br />
         <Button /><br />
-        <ToDo name="First test" completed={true} id="todo-0"/>
-        <ToDo name="Second test" completed={false} id="todo-1"/>
       </div>
     </div>
   )
+  console.log(props.tasks)
 }
-console.log(tasks)
 export default App
