@@ -10,7 +10,6 @@ export default function ToDo(props) {
             }
             return todo;
         });
-
         setTodos(newToDo)
     };
 
@@ -23,10 +22,10 @@ export default function ToDo(props) {
 
     return ( 
         <div className="flex flex-col justify-center items-center w-full">
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:ml-auto mr-auto gap-10">
+            <ul className={`grid grid-cols-1 ${toDo.length > 1 ?"sm:grid-cols-2":""} ${toDo.length > 2 ?"lg:grid-cols-3":""} ${toDo.length > 2 ?"xl:grid-cols-4":""} sm:ml-auto mr-auto gap-10`}>
                 {todos.map((todo) => (
                 <li key={todo.id}>
-                    <input type="checkbox" id = {todo.id} value={todo.done} checked={todo.done}onChange={() => {
+                    <input type="checkbox" id={todo.id} value={todo.done} checked={todo.done} onChange={() => {
                         handleChange(todo.id)
                     }} className="accent-blue-300 scale-[3] m-10"></input>
                     <label htmlFor={todo.id} className={`dark:text-white ml-5 text-xl ${todo.done?"line-through":"no-underline"}`}>{todo.title}</label>
