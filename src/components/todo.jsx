@@ -22,7 +22,7 @@ export default function ToDo(props) {
     if (toDo.length === 0) {
         return (
         <div className="mt-20">
-            <p className="text-center text-3xl sm:text-4xl lg:text-5xl dark:text-white">owo, you done with youw tasks, uwu</p>
+            <p className="text-center text-3xl sm:text-4xl lg:text-5xl dark:text-white">owo, u done w/ uw tasks, uwu</p>
         </div>
         )
     }
