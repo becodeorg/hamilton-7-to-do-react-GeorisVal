@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useKonamiCode } from 'use-konami-code';
 import { v4 as randomId } from "uuid";
 import Title from './components/title'
 import Form from './components/form'
@@ -29,6 +30,16 @@ export default function App() {
     }
   }
 
+  const [ message, setMessage ] = useState('');
+    useKonamiCode(() => {
+        setMessage('You did it!');
+    }, () => {
+        if(message !== '') {
+          alert("Don't be like that...")
+        }
+        setMessage('');
+    });
+
     const addTodo = (data) => {
       const newTodo = [...filteredTodo]
       newTodo.push({title: data, done: false, id: randomId()})
@@ -44,6 +55,9 @@ export default function App() {
       <div className="mt-5 ml-5 flex justify-center align-center flex-col">
         <Form addTodo={addTodo}/>
         <ToDo todo={filteredTodo}/>
+      </div>
+      <div>
+            { message && <span className="text-center text-white">{message}</span> }
       </div>
     </div>
   )
