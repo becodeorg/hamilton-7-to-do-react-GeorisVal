@@ -22,7 +22,7 @@ export default function ToDo(props) {
     if (toDo.length === 0) {
         return (
         <div className="mt-20">
-            <p className="text-center text-3xl sm:text-4xl lg:text-5xl dark:text-white">owo, u done w/ uw tasks, uwu</p>
+            <p className="text-center text-3xl sm:text-4xl lg:text-5xl text-white">owo, u done w/ uw tasks, uwu</p>
         </div>
         )
     }
@@ -34,7 +34,7 @@ export default function ToDo(props) {
                     <input type="checkbox" id={todo.id} value={todo.done} checked={todo.done} onChange={() => {
                         handleChange(todo.id)
                     }} className="accent-blue-300 scale-[3] m-10"></input>
-                    <label htmlFor={todo.id} className={`dark:text-white ml-5 text-xl ${todo.done?"line-through":"no-underline"}`}>{todo.title}</label>
+                    <label htmlFor={todo.id} className={`text-white ml-5 text-xl ${todo.done?"line-through":"no-underline"}`}>{todo.title}</label>
                 </li>
                 ))}
             </ul>
