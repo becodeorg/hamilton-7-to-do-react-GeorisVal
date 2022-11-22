@@ -28,7 +28,7 @@ export default function ToDo(props) {
     }
     return ( 
         <div className="flex flex-col justify-center items-center w-full">
-            <ul className={`grid grid-cols-1 ${toDo.length > 1 ?"sm:grid-cols-2":""} ${toDo.length > 2 ?"lg:grid-cols-3":""} ${toDo.length > 2 ?"xl:grid-cols-4":""} sm:ml-auto mr-auto gap-10`}>
+            <ul className={`grid grid-cols-1 ${toDo.length > 1 ?"sm:grid-cols-2":""} ${toDo.length > 2 ?"lg:grid-cols-3":""} ${toDo.length > 3 ?"xl:grid-cols-4":""} sm:ml-auto mr-auto gap-10`}>
                 {todos.map((todo) => (
                 <li key={todo.id}>
                     <input type="checkbox" id={todo.id} value={todo.done} checked={todo.done} onChange={() => {

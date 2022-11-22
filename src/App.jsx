@@ -39,7 +39,7 @@ export default function App() {
       window.localStorage.setItem(locStorage + ".todos", JSON.stringify(Todo));
     },[filteredTodo]);
   return (
-    <div className="w-[90vw] md:w-[75vw] min-h-[40vh] flex flex-col justify-start dark:bg-slate-600 border-2 border-white rounded-md">
+    <div className="w-[90vw] md:w-[75vw] min-h-[40vh] flex flex-col justify-start dark:bg-slate-600 border-2 hover:border-purple-500 border-white rounded-xl">
       <Title />
       <div className="mt-5 ml-5 flex justify-center align-center flex-col">
         <Form addTodo={addTodo}/>
