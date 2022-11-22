@@ -32,8 +32,8 @@ export default function ToDo(props) {
                 </li>
                 ))}
             </ul>
-            <div className="flex w-full align-center justify-center">
-                <button className="bg-blue-500 text-white h-10 m-5 hover:bg-blue-800 rounded-md w-[45%]" onClick={
+            <div className={`flex w-full align-center justify-center ${toDo.length === 0 ?"hidden":""}`}>
+                <button className="bg-blue-500 text-white h-10 m-5 hover:bg-blue-800 rounded-md w-[45%] disabled:bg-gray-800" disabled onClick={
                     () => {
                         if(window.confirm('This will completely remove all the things done. Are you sure you want to continue ?\nThis action cannot be undone.')) {
                         window.localStorage.removeItem(locStorage + ".todos");
