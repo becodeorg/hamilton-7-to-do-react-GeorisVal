@@ -15,35 +15,35 @@ export default function App() {
   });
 
   const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState([])
+  const [filteredTodo, setFilteredTodo] = useState(Todo)
   const filterHandler = () => { 
     switch(status){
       case 'Done':
-        setFilteredTodos(Todo.filter(todo => todo.done === true))
+        setFilteredTodo(Todo.filter(todo => todo.done === true));
         break;
       case 'NotDone':
-        setFilteredTodos(Todo.filter(todo => todo.done === false))
+        setFilteredTodo(Todo.filter(todo => todo.done === false));
         break;
       default:
-        setFilteredTodos(Todo)
+        setFilteredTodo(Todo)
     }
   }
 
     const addTodo = (data) => {
-      const newTodo = [...Todo]
+      const newTodo = [...filteredTodo]
       newTodo.push({title: data, done: false, id: randomId()})
-      setTodo(newTodo);
+      setFilteredTodo(newTodo);
     };
 
     React.useEffect(() => {
       window.localStorage.setItem(locStorage + ".todos", JSON.stringify(Todo));
-    },[Todo]);
+    },[filteredTodo]);
   return (
     <div className="-screen w-screen flex flex-col justify-start dark:bg-slate-600">
       <Title />
       <div className="mt-5 ml-5 flex justify-center align-center flex-col">
         <Form addTodo={addTodo}/>
-        <ToDo todo={Todo}/>
+        <ToDo todo={filteredTodo}/>
       </div>
     </div>
   )
