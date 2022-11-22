@@ -14,6 +14,21 @@ export default function App() {
       return initialTodo || []
   });
 
+  const [status, setStatus] = useState("all");
+  const [filteredTodos, setFilteredTodos] = useState([])
+  const filterHandler = () => { 
+    switch(status){
+      case 'Done':
+        setFilteredTodos(Todo.filter(todo => todo.done === true))
+        break;
+      case 'NotDone':
+        setFilteredTodos(Todo.filter(todo => todo.done === false))
+        break;
+      default:
+        setFilteredTodos(Todo)
+    }
+  }
+
     const addTodo = (data) => {
       const newTodo = [...Todo]
       newTodo.push({title: data, done: false, id: randomId()})
