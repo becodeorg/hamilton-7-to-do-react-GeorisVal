@@ -24,9 +24,9 @@ export default function Form(props) {
         }
     }
     return (
-        <div className="w-full flex flex-col ml-auto mr-auto">
-            <input ref={inputRef} type="text" placeholder="What needs to be done ?" className="border border-emerald-900 dark:border-white p-1 pl-2 rounded-md w-full" onKeyUp={enterHandler}></input>
-            <button className="bg-blue-500 text-white h-10 m-5 hover:bg-blue-800 rounded-md w-full" onClick={clickHandler}>Add task</button>
+        <div className=" w-full flex flex-col justify-center text-center items-center ">
+            <input ref={inputRef} type="text" placeholder="What needs to be done ?" className="border border-emerald-900 dark:border-white p-1 pl-2 rounded-md w-11/12" onKeyUp={enterHandler}></input>
+            <button className="bg-blue-500 text-white h-10 hover:bg-blue-800 rounded-md w-9/12 mt-5" onClick={clickHandler}>Add task</button>
         </div>
     )
 }
